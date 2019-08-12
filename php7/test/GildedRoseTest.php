@@ -56,6 +56,22 @@ class GildedRoseTest extends TestCase
      * @dataProvider dataProvider
      * @param int $param
      */
+    public function testConjured(int $param): void
+    {
+        $name = 'Conjured foo';
+        /** @var Item[] $items */
+        $items = [new Item($name, $param, $param)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals($name, $items[0]->name, 'Name fail');
+        $this->assertEquals($param - 1, $items[0]->sell_in, 'Sell-in fail');
+        $this->assertEquals(min(50, max(0, $param - 2)), $items[0]->quality, 'Quality fail');
+    }
+
+    /**
+     * @dataProvider dataProvider
+     * @param int $param
+     */
     public function testGeneral(int $param): void
     {
         $name = 'foo';

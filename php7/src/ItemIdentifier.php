@@ -21,6 +21,11 @@ class ItemIdentifier
         return $this->item->name === 'Backstage passes to a TAFKAL80ETC concert';
     }
 
+    public function isConjured(): bool
+    {
+        return false !== stripos($this->item->name, 'conjured');
+    }
+
     public function isSulfuras(): bool
     {
         return $this->item->name === 'Sulfuras, Hand of Ragnaros';

@@ -26,6 +26,16 @@ class ItemIdentifierTest extends TestCase
         $this->assertFalse($itemIdentifier->isSulfuras());
     }
 
+    public function testConjured(): void
+    {
+        $item = new Item('Conjured foo', 0, 0);
+        $itemIdentifier = new ItemIdentifier($item);
+        $this->assertFalse($itemIdentifier->isAgedBrie());
+        $this->assertFalse($itemIdentifier->isBackstagePass());
+        $this->assertTrue($itemIdentifier->isConjured());
+        $this->assertFalse($itemIdentifier->isSulfuras());
+    }
+
     public function testGeneral(): void
     {
         $item = new Item('foo', 0, 0);

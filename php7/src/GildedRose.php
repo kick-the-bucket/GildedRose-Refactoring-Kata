@@ -22,6 +22,9 @@ final class GildedRose
                 case $identifier->isBackstagePass():
                     BackstagePassHandler::handle($item);
                     break;
+                case $identifier->isConjured():
+                    ConjuredItemHandler::handle($item);
+                    break;
                 case $identifier->isSulfuras():
                     SulfurasHandler::handle($item);
                     break;
